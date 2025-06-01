@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+
+        <div class="settings-panel">
+            <div class="setting-group">
+                <label for="game-mode">Mode Permainan:</label>
+                <select id="game-mode">
+                    <option value="pvp">Pemain vs Pemain</option>
+                    <option value="pve">Pemain vs Komputer</option>
+                    <option value="ava">Komputer vs Komputer</option>
+                </select>
+            </div>
+
+            <div class="setting-group" id="player-symbol-group">
+                <label for="player1-symbol">Simbol Pemain 1 (Anda):</label>
+                <select id="player1-symbol">
+                    <option value="X">X (Mulai Duluan)</option>
+                    <option value="O">O</option>
+                </select>
+            </div>
+            
+            <div class="setting-group ai-settings" id="ai-difficulty-group">
+                <label for="ai-difficulty">Kesulitan AI (untuk Pemain O/Komputer):</label>
+                <select id="ai-difficulty">
+                    <option value="random">Mudah (Acak)</option>
+                    <option value="medium">Menengah</option>
+                    <option value="unbeatable">Sulit (Minimax)</option>
+                </select>
+            </div>
+
+            <div class="setting-group ava-settings" id="ava-ai1-difficulty-group" style="display: none;">
+                <label for="ava-ai1-difficulty">AI untuk Pemain X:</label>
+                <select id="ava-ai1-difficulty">
+                    <option value="random">Mudah (Acak)</option>
+                    <option value="medium">Menengah</option>
+                    <option value="unbeatable">Sulit (Minimax)</option>
+                </select>
+            </div>
+            <div class="setting-group ava-settings" id="ava-ai2-difficulty-group" style="display: none;">
+                <label for="ava-ai2-difficulty">AI untuk Pemain O:</label>
+                <select id="ava-ai2-difficulty">
+                    <option value="random">Mudah (Acak)</option>
+                    <option value="medium">Menengah</option>
+                    <option value="unbeatable">Sulit (Minimax)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="game-board-container">
+            <div class="game-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+        </div>
+        
+        <div class="status-display" id="status-message">Pilih mode dan mulai permainan!</div>
+
+        <div class="score-board">
+            <div>Skor X: <span id="score-x">0</span></div>
+            <div>Seri: <span id="score-draw">0</span></div>
+            <div>Skor O: <span id="score-o">0</span></div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="reset-button">Reset Game</button>
+            <button id="start-ava-button" style="display: none;">Mulai AI vs AI</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
