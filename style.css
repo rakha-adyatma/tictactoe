@@ -1,22 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-bg: #f4f7f6; /* Latar belakang utama yang lembut */
-    --secondary-bg: #ffffff; /* Latar belakang elemen */
-    --text-color: #333333;
-    --accent-color-x: #ff6b6b; /* Warna untuk X */
-    --accent-color-o: #4f8af0; /* Warna untuk O */
-    --border-color: #e0e0e0;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --button-bg: #5cb85c;
-    --button-hover-bg: #4cae4c;
-    --cell-hover-bg: #e8f5e9; /* Hover sel yang lembut */
+    /* Palet Warna Keunguan yang Lebih Menarik */
+    --primary-bg-start: #f2e9ff; /* Lavender pucat untuk awal gradien */
+    --primary-bg-end: #e3d7f7;   /* Lavender sedikit lebih gelap untuk akhir gradien */
+    
+    --container-bg: #ffffff;     /* Kontainer utama tetap putih agar konten jelas */
+    --card-element-bg: #f9f7fd; /* Latar elemen seperti panel skor/setting (ungu sangat lembut) */
+    
+    --text-color-primary: #3f355e; /* Ungu gelap untuk teks utama */
+    --text-color-secondary: #6a5f8a;/* Ungu lebih muda untuk teks sekunder/label */
+    
+    --accent-color-x: #e91e63;   /* Magenta/Pink cerah untuk X */
+    --accent-color-o: #00bcd4;   /* Cyan/Teal cerah untuk O (kontras baik dengan ungu & pink) */
+    /* Alternatif O jika ingin tetap ungu: --accent-color-o: #9b59b6; */
+
+    --border-color: #d1c4e9;     /* Ungu muda untuk border */
+    --shadow-color: rgba(63, 53, 94, 0.12); /* Bayangan dengan hint ungu lembut */
+    --strong-shadow-color: rgba(63, 53, 94, 0.18);
+
+    --button-primary-bg: #8e44ad; /* Ungu cerah untuk tombol utama */
+    --button-primary-hover-bg: #732d91; /* Ungu lebih gelap saat hover */
+
+    --button-secondary-bg: #95a5a6; /* Abu-abu netral untuk tombol sekunder */
+    --button-secondary-hover-bg: #7f8c8d;
+
+    --cell-bg: #fdfcff;          /* Latar sel (putih keunguan sangat lembut) */
+    --cell-hover-bg: #ede7f6;    /* Lavender sangat pucat untuk hover sel */
+    --cell-occupied-bg: #f5f3f9; /* Latar sel yang sudah terisi (sedikit beda) */
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--primary-bg);
-    color: var(--text-color);
+    background-image: linear-gradient(135deg, var(--primary-bg-start), var(--primary-bg-end));
+    color: var(--text-color-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,145 +44,194 @@ body {
 }
 
 .container {
-    background-color: var(--secondary-bg);
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px var(--shadow-color);
+    background-color: var(--container-bg);
+    padding: 30px 35px;
+    border-radius: 16px; /* Lebih rounded */
+    box-shadow: 0 10px 30px var(--strong-shadow-color);
     text-align: center;
     width: 100%;
-    max-width: 480px; /* Lebar maksimum agar tidak terlalu lebar di layar besar */
+    max-width: 500px; 
+    animation: fadeInContainer 0.5s ease-out;
+}
+
+@keyframes fadeInContainer {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
-    color: var(--text-color);
-    margin-bottom: 20px;
-    font-weight: 600;
+    color: var(--text-color-primary);
+    margin-bottom: 25px;
+    font-weight: 700; /* Lebih tebal */
+    font-size: 2.2em;
 }
 
 .settings-panel {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Jarak antar grup setting */
+    gap: 18px;
+    background-color: var(--card-element-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .setting-group {
     display: flex;
-    flex-direction: column; /* Label di atas, select di bawah */
-    align-items: flex-start; /* Rata kiri untuk label dan select */
+    flex-direction: column;
+    align-items: flex-start;
     text-align: left;
 }
 
 .setting-group label {
-    margin-bottom: 5px;
-    font-size: 0.9em;
-    color: #555;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    font-weight: 500; /* Sedikit lebih tebal */
+    color: var(--text-color-secondary);
 }
 
 .setting-group select {
     width: 100%;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 12px 15px; /* Padding lebih nyaman */
+    border-radius: 8px; /* Rounded lebih besar */
     border: 1px solid var(--border-color);
     background-color: #fff;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95em;
+    font-size: 1em;
     box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    appearance: none; /* Hilangkan tampilan default browser */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
 }
 
+.setting-group select:focus {
+    outline: none;
+    border-color: var(--button-primary-bg);
+    box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.25);
+}
 
 .game-board-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Ukuran sel fleksibel */
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 300px; /* Ukuran papan tetap */
-    height: 300px;
-    gap: 10px; /* Jarak antar sel yang lebih modern */
-    background-color: var(--primary-bg); /* Warna latar papan sedikit beda */
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    width: clamp(280px, 90vw, 330px); /* Responsif dengan batas min/max */
+    height: clamp(280px, 90vw, 330px);
+    gap: 8px; /* Gap sedikit lebih kecil untuk tampilan yang lebih rapat */
+    background-color: var(--border-color); /* Latar papan dari border color */
+    padding: 8px;
+    border-radius: 12px; /* Lebih rounded */
+    box-shadow: 0 5px 20px var(--shadow-color);
 }
 
 .cell {
-    background-color: var(--secondary-bg);
-    border-radius: 6px; /* Sudut sel lebih rounded */
+    background-color: var(--cell-bg);
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3.5em; /* Ukuran simbol X/O */
-    font-weight: 600;
+    font-size: clamp(2.8em, 12vw, 4em); /* Ukuran font simbol responsif */
+    font-weight: 700; /* Simbol lebih tebal */
     cursor: pointer;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 3px 6px var(--shadow-color);
+    position: relative; /* Untuk animasi simbol */
 }
 
-.cell:hover:not(.occupied) { /* Hanya hover jika belum terisi */
+.cell:hover:not(.occupied) {
     background-color: var(--cell-hover-bg);
-    box-shadow: 0 4px 8px var(--shadow-color);
-}
-
-.cell.X {
-    color: var(--accent-color-x);
-}
-
-.cell.O {
-    color: var(--accent-color-o);
+    transform: translateY(-2px); /* Efek angkat saat hover */
+    box-shadow: 0 6px 12px var(--strong-shadow-color);
 }
 
 .cell.occupied {
     cursor: not-allowed;
+    background-color: var(--cell-occupied-bg);
 }
 
+.cell .symbol { /* Wrapper untuk animasi */
+    display: inline-block;
+    animation: symbolAppear 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi pop */
+}
+
+@keyframes symbolAppear {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.cell.X .symbol { color: var(--accent-color-x); }
+.cell.O .symbol { color: var(--accent-color-o); }
+
+
 .status-display {
-    margin-bottom: 15px;
-    font-size: 1.1em;
-    font-weight: 400;
-    min-height: 25px; /* Agar layout tidak bergeser saat pesan berubah */
-    color: #444;
+    margin-bottom: 20px;
+    font-size: 1.15em;
+    font-weight: 500;
+    min-height: 30px;
+    color: var(--text-color-primary);
+    transition: color 0.3s ease;
 }
 
 .score-board {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
-    font-size: 1em;
-    background-color: var(--primary-bg);
-    padding: 10px;
-    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 1.05em;
+    font-weight: 500;
+    background-color: var(--card-element-bg);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .score-board div {
     flex: 1;
+    padding: 5px;
 }
+#score-x { color: var(--accent-color-x); font-weight: 600;}
+#score-o { color: var(--accent-color-o); font-weight: 600;}
 
 .action-buttons button {
-    background-color: var(--button-bg);
-    color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
+    padding: 14px 24px;
+    border-radius: 8px; /* Rounded lebih besar */
     cursor: pointer;
-    font-size: 1em;
-    font-weight: 400;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    margin: 5px;
+    font-size: 1.05em;
+    font-weight: 600; /* Tombol lebih tegas */
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    margin: 8px 5px;
+    box-shadow: 0 3px 7px var(--shadow-color);
 }
-
-.action-buttons button:hover {
-    background-color: var(--button-hover-bg);
-    transform: translateY(-1px);
-}
-
 .action-buttons button:active {
-    transform: translateY(0px);
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px var(--shadow-color);
 }
+
+#reset-button {
+    background-color: var(--button-secondary-bg);
+    color: white;
+}
+#reset-button:hover {
+    background-color: var(--button-secondary-hover-bg);
+}
+
+#start-ava-button {
+    background-color: var(--button-primary-bg);
+    color: white;
+}
+#start-ava-button:hover {
+    background-color: var(--button-primary-hover-bg);
+}
+
 
 /* Sembunyikan pengaturan AI spesifik untuk AvA secara default */
 .ava-settings {
