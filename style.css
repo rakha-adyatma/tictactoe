@@ -11,8 +11,9 @@
     --text-color-primary: #3f355e; /* Ungu gelap untuk teks utama */
     --text-color-secondary: #6a5f8a;/* Ungu lebih muda untuk teks sekunder/label */
     
-    --accent-color-x: #e91e63;   /* Magenta/Pink cerah untuk X */
-    --accent-color-o: #00bcd4;   /* Cyan/Teal cerah untuk O (kontras baik dengan ungu & pink) */
+    /* Warna X dan O yang sudah disesuaikan */
+    --accent-color-x: #5E35B1;   /* Ungu Tua Pekat (untuk X) */
+    --accent-color-o: #7E57C2;   /* Ungu Lavender Dalam (untuk O, sedikit lebih terang dari X) */
 
     --border-color: #d1c4e9;     /* Ungu muda untuk border */
     --shadow-color: rgba(63, 53, 94, 0.12); /* Bayangan dengan hint ungu lembut */
