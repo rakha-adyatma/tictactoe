@@ -353,17 +353,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Initial Setup ---
     initializeGame(); // Mulai game saat halaman dimuat pertama kali
     
-    // Penjelasan Minimax (bisa ditampilkan di UI atau konsol jika diinginkan)
-    console.log(
-    Penjelasan Algoritma Minimax (untuk AI Sulit):
-    Minimax adalah algoritma rekursif yang digunakan dalam pengambilan keputusan dan teori permainan untuk menemukan langkah optimal bagi seorang pemain, dengan asumsi bahwa lawan juga bermain secara optimal.
-    1. Pohon Permainan: Minimax menjelajahi semua kemungkinan langkah hingga akhir permainan, membentuk sebuah "pohon permainan".
-    2. Skor Terminal: Setiap akhir permainan (menang, kalah, seri) diberi skor. Misal: +10 untuk kemenangan AI, -10 untuk kekalahan AI (kemenangan pemain), dan 0 untuk seri.
-    3. Propagasi Skor: 
-       - Giliran AI (Maximizer): AI akan memilih langkah yang mengarah ke hasil dengan skor maksimum.
-       - Giliran Lawan (Minimizer): Diasumsikan lawan akan memilih langkah yang mengarah ke hasil dengan skor minimum (dari sudut pandang AI).
-    4. Rekursi: Algoritma bekerja mundur dari akhir permainan, menghitung skor optimal untuk setiap state.
-    5. Alpha-Beta Pruning (Optimasi): Teknik ini memotong cabang-cabang dari pohon permainan yang tidak perlu dieksplorasi karena sudah ditemukan langkah yang lebih baik, sehingga membuat algoritma lebih cepat.
-    Dalam Tic-Tac-Toe, karena permainannya relatif sederhana, Minimax dapat menjelajahi seluruh pohon permainan dan selalu menemukan langkah yang tidak akan membuatnya kalah (jika dimainkan dengan benar, hasilnya minimal seri).
-    );
 });
