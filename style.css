@@ -12,8 +12,7 @@
     --text-color-secondary: #6a5f8a;/* Ungu lebih muda untuk teks sekunder/label */
     
     --accent-color-x: #e91e63;   /* Magenta/Pink cerah untuk X */
-    --accent-color-o: #000000;   /* Cyan/Teal cerah untuk O (kontras baik dengan ungu & pink) */
-    /* Alternatif O jika ingin tetap ungu: --accent-color-o: #9b59b6; */
+    --accent-color-o: #00bcd4;   /* Cyan/Teal cerah untuk O (kontras baik dengan ungu & pink) */
 
     --border-color: #d1c4e9;     /* Ungu muda untuk border */
     --shadow-color: rgba(63, 53, 94, 0.12); /* Bayangan dengan hint ungu lembut */
@@ -158,7 +157,8 @@ h1 {
     background-color: var(--cell-occupied-bg);
 }
 
-.cell .symbol { /* Wrapper untuk animasi */
+/* Penting: Pastikan JS Anda membuat <span class="symbol">X</span> atau <span class="symbol">O</span> di dalam .cell */
+.cell .symbol { 
     display: inline-block;
     animation: symbolAppear 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi pop */
 }
@@ -231,7 +231,6 @@ h1 {
 #start-ava-button:hover {
     background-color: var(--button-primary-hover-bg);
 }
-
 
 /* Sembunyikan pengaturan AI spesifik untuk AvA secara default */
 .ava-settings {
