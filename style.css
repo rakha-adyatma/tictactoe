@@ -12,7 +12,7 @@
     --text-color-secondary: #6a5f8a;/* Ungu lebih muda untuk teks sekunder/label */
     
     --accent-color-x: #e91e63;   /* Magenta/Pink cerah untuk X */
-    --accent-color-o: #00bcd4;   /* Cyan/Teal cerah untuk O (kontras baik dengan ungu & pink) */
+    --accent-color-o: #000000;   /* Cyan/Teal cerah untuk O (kontras baik dengan ungu & pink) */
     /* Alternatif O jika ingin tetap ungu: --accent-color-o: #9b59b6; */
 
     --border-color: #d1c4e9;     /* Ungu muda untuk border */
